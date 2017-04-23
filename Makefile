@@ -6,7 +6,7 @@
 #    By: mbeilles <mbeilles@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/11 20:39:18 by mbeilles          #+#    #+#              #
-#    Updated: 2017/04/23 14:23:06 by mbeilles         ###   ########.fr        #
+#    Updated: 2017/04/23 14:40:47 by mbeilles         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -91,10 +91,10 @@ AR_SRC_O = $(SRCS_O:%.o=$(OBJECT)/%.o)
 all: header $(SRCS_O)
 	@printf "\n \033[90m====> \033[36mGenrating lib... "
 	@ar rc $(NAME) $(AR_SRC_O) 2> errors.txt
-	@ranlib $(NAME) 2> errors.txt
+	@ranlib $(NAME) #2> errors.txt
 	@if [ -s errors.txt ] ; \
 	then \
-		printf "\033[90m[\033[32mKO\033[90m] \n\n" ; \
+		printf "\033[90m[\033[31mKO\033[90m]\n\n" ; \
 		cat errors.txt ; \
 	else \
 		printf "\r\033[34m[\033[36mOK\033[34m] \033[0m\n" ; \
@@ -104,7 +104,7 @@ all: header $(SRCS_O)
 $(NAME): all
 
 header:
-	@if [ -e errors.txt ] ; \
+	@if [ -s errors.txt ] ; \
 	then \
 		touch errors.txt ; \
 	else \
@@ -115,10 +115,10 @@ header:
 	@printf "\n\n"
 
 %.o: $(SRC)/%.c
-	@$(CC) -o $(OBJECT)/$@ -c $< $(CFLAGS) $(IFLAGS) 2> errors.txt
+	@$(CC) -o $(OBJECT)/$@ -c $< $(CFLAGS) $(IFLAGS) > errors.txt
 	@if [ -s errors.txt ] ; \
 	then \
-		printf "[KO]  $@\n" ; \
+		printf "\r\033[34m[\033[36mOK\033[34m] \033[36m$@\n" ; \
 	else \
 		printf "\r\033[34m[\033[36mOK\033[34m] \033[90m* \033[32m$@ \033[0m" ; \
 	fi ;
