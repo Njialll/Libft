@@ -6,7 +6,7 @@
 #    By: mbeilles <mbeilles@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/11 20:39:18 by mbeilles          #+#    #+#              #
-#    Updated: 2017/04/23 14:40:47 by mbeilles         ###   ########.fr        #
+#    Updated: 2017/04/23 14:42:10 by mbeilles         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -91,7 +91,7 @@ AR_SRC_O = $(SRCS_O:%.o=$(OBJECT)/%.o)
 all: header $(SRCS_O)
 	@printf "\n \033[90m====> \033[36mGenrating lib... "
 	@ar rc $(NAME) $(AR_SRC_O) 2> errors.txt
-	@ranlib $(NAME) #2> errors.txt
+	@ranlib $(NAME) 2> errors.txt
 	@if [ -s errors.txt ] ; \
 	then \
 		printf "\033[90m[\033[31mKO\033[90m]\n\n" ; \
