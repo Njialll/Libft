@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strlen.c                                           :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbeilles <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mbeilles <mbeilles@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 00:03:40 by mbeilles          #+#    #+#             */
-/*   Updated: 2017/04/12 00:05:24 by mbeilles         ###   ########.fr       */
+/*   Updated: 2017/04/23 10:15:31 by mbeilles         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-size_t	ft_strlen(char *str)
+size_t	ft_strlen(char const *str)
 {
-	size_t	i;
+	char	*s;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+	s = (char *)str;
+	while (*s)
+		s++;
+	return (s - str);
 }
