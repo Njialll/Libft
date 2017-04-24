@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mbeilles <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mbeilles <mbeilles@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 17:22:36 by mbeilles          #+#    #+#             */
-/*   Updated: 2017/04/19 23:41:15 by mbeilles         ###   ########.fr       */
+/*   Updated: 2017/04/24 16:00:07 by mbeilles         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int				ft_tolower(int c);
 ** --- String manipulation ---
 */
 
-int				ft_atoi(const char *str);
+int				ft_atoi(char const *str);
 char			*ft_itoa(int nbr);
 
 char			*ft_strcpy(char *dest, const char *src);
@@ -59,6 +59,7 @@ char			*ft_strcat(char *dest, const char *src);
 char			*ft_strncat(char *dest, const char *src, size_t n);
 size_t			ft_strlcat(char *dst, const char *src, size_t size);
 char			*ft_strjoin(char const *s1, char const *s2);
+char			*ft_strjoin_free(char const *s1, char const *s2);
 
 char			*ft_strchr(const char *str, int c);
 char			*ft_strrchr(char const *s, int c);
@@ -89,9 +90,9 @@ char			**ft_strsplit(char const *s, char c);
 ** --- String comparison ---
 */
 
-int				ft_strcmp(const char *str1, const char *str2);
-int				ft_strncmp(const char *str1, const char *str2, size_t n);
-size_t			ft_strlen(const char *str);
+int				ft_strcmp(char const *str1, char const *str2);
+int				ft_strncmp(char const *str1, char const *str2, size_t n);
+size_t			ft_strlen(char const *str);
 
 /*
 ** --- Math functions ---
