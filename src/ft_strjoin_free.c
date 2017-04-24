@@ -6,7 +6,7 @@
 /*   By: mbeilles <mbeilles@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/24 15:57:15 by mbeilles          #+#    #+#             */
-/*   Updated: 2017/04/24 15:57:58 by mbeilles         ###   ########.fr       */
+/*   Updated: 2017/04/24 20:47:49 by mbeilles         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	ft_strcpy(tab, s1);
 	ft_strcat(tab, s2);
-	free(s1);
-	free(s2);
+	free((void*)s1);
 	return (tab);
 }
